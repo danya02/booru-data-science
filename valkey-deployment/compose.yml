@@ -1,0 +1,9 @@
+services:
+    valkey:
+        restart: unless-stopped
+        image: valkey/valkey
+        volumes:
+          - ./data:/data
+        command: valkey-server --save 15 1 --loglevel warning --port 6379
+        ports:
+          - "6379:6379"
